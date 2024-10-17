@@ -17,13 +17,14 @@
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 0.8em;
             color: #333;
         }
 
         p {
-            font-size: 2em;
+            font-size: 6em;
             color: #666;
+            margin: 0;
         }
 
         .date {
@@ -41,14 +42,14 @@
     </style>
 </head>
 <body>
-    <h1>Czy będzie praca?</h1>
-    <p>Nie wiem</p>
+    <h1>czy będzie praca?</h1>
+    <p>NIE WIEM</p>
 
     <!-- Miejsce na odliczanie -->
     <div class="countdown" id="countdown"></div>
 
     <div class="date">
-        Dzisiaj jest <span id="date"></span>
+        dzisiaj jest <span id="date"></span>
     </div>
 
     <script>
@@ -70,7 +71,7 @@
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById('countdown').textContent = 
-                `Do końca roku 2024 pozostało: ${days} dni, ${hours} godzin, ${minutes} minut, ${seconds} sekund`;
+                `do końca roku 2024 pozostało: ${days} dni, ${hours} godzin, ${minutes} minut, ${seconds} sekund`;
         }
 
         // Aktualizuj odliczanie co sekundę
