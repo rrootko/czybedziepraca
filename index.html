@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CzyBedziePraca?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        p {
+            font-size: 2em;
+            color: #666;
+        }
+
+        .date {
+            position: absolute;
+            bottom: 10px;
+            font-size: 1.2em;
+            color: #999;
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            color: #000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Czy będzie praca?</h1>
+    <p>Nie wiem</p>
+
+    <!-- Miejsce na odliczanie -->
+    <div class="countdown" id="countdown"></div>
+
+    <div class="date">
+        Dzisiaj jest <span id="date"></span>
+    </div>
+
+    <script>
+        // Ustawienie dzisiejszej daty
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('date').textContent = today.toLocaleDateString('pl-PL', options);
+
+        // Odliczanie do końca roku 2024
+        const endOfYear = new Date('2024-12-31T23:59:59');
+        
+        function updateCountdown() {
+            const now = new Date();
+            const diff = endOfYear - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = 
+                `Do końca roku 2024 pozostało: ${days} dni, ${hours} godzin, ${minutes} minut, ${seconds} sekund`;
+        }
+
+        // Aktualizuj odliczanie co sekundę
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
